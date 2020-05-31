@@ -1,0 +1,22 @@
+.shards-navbar {
+   height: 120px;
+}
+.navbar-brand {
+   height: 100%;
+   display: flex;
+   align-items: flex-end;
+   margin-left: 25px;
+}
+.collapse-nav-component {
+   height: 100%;
+   display: flex;
+   justify-content: flex-end;
+   margin-right: 25px;
+   align-items: flex-end;
+}
+/* .restaurant-info {
+   border: dotted grey 3px;
+   margin-right: auto;
+   display: flex;
+   align-items: flex-end;
+} */

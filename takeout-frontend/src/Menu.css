@@ -1,0 +1,11 @@
+.category {
+   display: flex;
+}
+.category-contents {
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+}
+.category-card {
+   margin: 5px;
+}
