@@ -1,0 +1,13 @@
+/* .menu-editor {
+   background: red;
+   color: white;
+   font: 1.2em;
+} */
+
+input[type=radio] {
+   margin: 0 2px 0 10px;
+}
+.radio-element {
+   padding: 0 5px 0 5px;
+}
+

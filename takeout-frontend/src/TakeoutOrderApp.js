@@ -4,6 +4,7 @@ import * as apiCalls from './api';
 import NavComponent from './NavComponent';
 import Menu from './Menu';
 import Cart from './Cart';
+import MenuEditor from './MenuEditor'
 
 import { Container, Row, Col } from 'shards-react';
 import "shards-ui/dist/css/shards.min.css"
@@ -48,9 +49,10 @@ class TakeoutOrderApp extends Component {
    }
 
    async loadMenu() {
-      let menuObj = await apiCalls.getAllMenus();
-      let menuCategories = menuObj[0].menuCategories;
-      let activeCategory = menuCategories[0];
+      const menuObj = await apiCalls.getAllMenus();
+      if (!menuObj || !menuObj[0]) return; // if menuObj is empty than just end the function so it doesn't crash
+      const menuCategories = menuObj[0].menuCategories;
+      const activeCategory = menuCategories[0];
 
       this.updateVisibleItemCards(activeCategory);
 
@@ -145,6 +147,10 @@ class TakeoutOrderApp extends Component {
                            handleRemoveFromCart={this.handleRemovefromCart}
                         />
                      </Col>
+                  </Row>
+
+                  <Row>
+                     <MenuEditor/>
                   </Row>
                </Container>
             </div>
