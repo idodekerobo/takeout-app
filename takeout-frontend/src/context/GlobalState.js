@@ -8,9 +8,9 @@ const initialState = {
       name: 'pop tart',
    }],
    restaurant: {},
-   menuCategories: [{_id: 1, name: 'filler'}],
+   menuCategories: [],
    activeCategory: {},
-   visibleItemCards: [{_id: 1, name: 'filler card', price: 2}],
+   visibleItemCards: [],
 };
 
 // creating context

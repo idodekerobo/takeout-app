@@ -29,12 +29,8 @@ class TakeoutOrderApp extends Component {
    constructor(props) {
       super(props);
       this.state = {
-         cart: [],
-         subtotal: 0,
-         tax: 0,
-         totalPrice: 0
+         isLoading: true,
       }
-
       this.updateVisibleItemCards = this.updateVisibleItemCards.bind(this);
       this.loadMenu = this.loadMenu.bind(this);
       this.onCategoryButtonClick = this.onCategoryButtonClick.bind(this);
@@ -58,6 +54,7 @@ class TakeoutOrderApp extends Component {
       const { dispatch } = this.context;  // have to write like this since class component
       dispatch({type: Actions.LOAD_MENU, payload: menuCategories});
       dispatch({type: Actions.GET_ACTIVE_CATEGORY, payload: activeCategory});
+      this.setState({isLoading:false})
    }
 
    onCategoryButtonClick(id) {
@@ -102,7 +99,11 @@ class TakeoutOrderApp extends Component {
    }
 
    render() {
-      const { state } = this.context; // have to write like this since class component
+      if (!this.state.isLoading) {
+         var menu = (<Menu onCategoryClick={this.onCategoryButtonClick.bind(this)} handleAddToOrderClick={this.handleAddToOrderClick.bind(this)} />)
+      } else {
+         var menu = null;
+      }
       return (
          <div>
             <div className="main-body">
@@ -110,20 +111,11 @@ class TakeoutOrderApp extends Component {
                   <NavComponent/>
                   <Row>
                      <Col sm="12" lg="9">
-                        <Menu menuCategories={state.menuCategories}
-                              visibleItems={state.visibleItemCards}
-                              onCategoryClick={this.onCategoryButtonClick.bind(this)}
-                              handleAddToOrderClick={this.handleAddToOrderClick.bind(this)}
-                        />
+                        {menu}
                      </Col>
+
                      <Col sm="12" lg="3">
-                        <Cart
-                           cartItems={this.state.cart}
-                           handleRemoveFromCart={this.handleRemovefromCart}
-                           subtotal={this.state.subtotal}
-                           tax={this.state.tax}
-                           total={this.state.totalPrice}
-                        />
+                        <Cart handleRemoveFromCart={this.handleRemovefromCart} />
                      </Col>
                   </Row>
 
@@ -136,7 +128,6 @@ class TakeoutOrderApp extends Component {
          </div>
       );
    }
-
 }
 
 export default TakeoutOrderApp;
