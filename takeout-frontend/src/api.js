@@ -47,7 +47,7 @@ export async function getRestuarantInfo() {
       return resp.json();
    })
    .then(jsonData => {
-      console.log(jsonData);
+      // console.log(jsonData);
       return jsonData;
    })
    .catch(err => catchBlock(err));
@@ -68,7 +68,7 @@ export async function getAllMenus() {
       return resp.json(); // if response is okay then convert to json and return
    })
    .then(jsonData => {
-      console.log(jsonData);
+      // console.log(jsonData);
       return jsonData; // take that jsondata and return it 
    })
    .catch(err => catchBlock(err));
@@ -84,7 +84,7 @@ export async function getMenu(menuId) {
       return resp.json();
    })
    .then(jsonData => {
-      console.log(jsonData);
+      // console.log(jsonData);
       return jsonData;
    })
    .catch(err => catchBlock(err));
@@ -143,7 +143,7 @@ export async function getAllItems() {
       return resp.json(); // if response is okay then return the response in json
    })
    .then(jsonData => {
-      console.log(jsonData);
+      // console.log(jsonData);
       return jsonData; // actually returning the jsonData from the resolved proimse func
    })
    .catch(err => catchBlock(err));
@@ -159,7 +159,7 @@ export async function getItem(itemId) {
       return resp.json();
    })
    .then(jsonData => {
-      console.log(jsonData);
+      // console.log(jsonData);
       return jsonData;
    })
    .catch(err => catchBlock(err));
@@ -181,7 +181,7 @@ export async function updateItem(itemId) {
       return resp.json();
    })
    .then(jsonData => {
-      console.log(jsonData);
+      // console.log(jsonData);
       return jsonData;
    })
    .catch(err => catchBlock(err));
@@ -206,7 +206,7 @@ export async function postItem(itemName, itemPrice) {
       return resp.json();
    })
    .then(jsonData => {
-      console.log(jsonData);
+      // console.log(jsonData);
       return jsonData;
    })
    .catch(err => catchBlock(err));
@@ -226,7 +226,7 @@ export async function getAllCategories() {
       return resp.json();
    })
    .then(jsonData => {
-      console.log(jsonData);
+      // console.log(jsonData);
       return jsonData;
    })
    .catch(err => catchBlock(err));
@@ -240,7 +240,7 @@ export async function getCategory(categoryId) {
       return resp.json();
    })
    .then(jsonData => {
-      console.log(jsonData);
+      // console.log(jsonData);
       return jsonData;
    })
    .catch(err => catchBlock(err));

@@ -4,9 +4,13 @@ import './index.css';
 import TakeoutOrderApp from './TakeoutOrderApp';
 import * as serviceWorker from './serviceWorker';
 
+import { GlobalProvider } from './context/GlobalState';
+
 ReactDOM.render(
   <React.StrictMode>
-    <TakeoutOrderApp />
+     <GlobalProvider>
+      <TakeoutOrderApp />
+    </GlobalProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
