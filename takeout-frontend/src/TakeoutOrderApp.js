@@ -67,23 +67,9 @@ class TakeoutOrderApp extends Component {
 
    handleAddToOrderClick(id) {
       console.log(id);
-      const { state } = this.context
+      const { state, dispatch } = this.context
       const clickedItem = state.visibleItemCards.slice().find( (item) => item._id === id);
-      // var currentSubtotal;
-      // if (this.state.cart.length === 0) {
-      //    currentSubtotal = clickedItem.price;
-      // } else {
-      //    currentSubtotal = this.state.cart.slice().reduce( (acc, obj) => {
-      //       return acc + obj.price;
-      //    }, 0);
-      // }
-      // this.setState( (prevState) => ({
-      //       cart: [...this.state.cart, clickedItem],
-      //       subtotal: roundTo((prevState.subtotal + clickedItem.price), 2),
-      //       tax: roundTo(((prevState.subtotal + clickedItem.price)*TAX_RATE), 2),
-      //       totalPrice: roundTo((prevState.subtotal + clickedItem.price) + ((prevState.subtotal + clickedItem.price)*TAX_RATE), 2)
-      //    })
-      // );
+      dispatch({type: Actions.ADD_TO_CART, payload: [...state.cart, clickedItem]});
    }
 
    handleRemovefromCart(id) {

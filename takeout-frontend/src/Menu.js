@@ -8,9 +8,11 @@ import { GlobalContext } from './context/GlobalState';
 
 const Menu = ({onCategoryClick, handleAddToOrderClick}) => {
    const { state } = useContext(GlobalContext);
+
    const categories = state.menuCategories.slice().map( (category) => {
       return <Button key={category._id} onClick={onCategoryClick.bind(this, category._id)} size="lg" theme="light">{category.name}</Button>
    });
+
    const visibleItems = state.visibleItemCards.slice().map( (item) => {
       return   <Card key={item._id} className="category-card">
                   <CardImg src="https://place-hold.it/300x200"/>
@@ -26,9 +28,7 @@ const Menu = ({onCategoryClick, handleAddToOrderClick}) => {
    
    return (
       <div>
-
-         <div className="category">
-            
+         <div className="category"> 
             <div className="category-buttons">
                <ButtonGroup vertical>
                   {categories}
@@ -40,7 +40,6 @@ const Menu = ({onCategoryClick, handleAddToOrderClick}) => {
                {visibleItems}
             </div>
             {/* end of category-content div */}
-
          </div> 
          {/* end of category div */}
       </div>

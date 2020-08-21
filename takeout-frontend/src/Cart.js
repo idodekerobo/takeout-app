@@ -9,11 +9,6 @@ import { GlobalContext } from './context/GlobalState';
 const TAX_RATE = 0.07;
 
 const Cart = (props) =>  {
-   // const currentCart = props.cartItems.slice().map( (item) => {
-   //    return   <ListGroupItem key={item._id}>{item.name}: ${item.price} <Button onClick={props.handleRemoveFromCart.bind(this, item._id)} size="sm" theme="dark">Remove</Button>
-   //             </ListGroupItem>
-   // });
-
    const { state } = useContext(GlobalContext);
    const currentCart = state.cart.slice().map( (item) => {
       return   <ListGroupItem key={item._id}>{item.name}: ${(item.price).toFixed(2)} <Button onClick={props.handleRemoveFromCart.bind(this, item._id)} size="sm" theme="dark">Remove</Button>
