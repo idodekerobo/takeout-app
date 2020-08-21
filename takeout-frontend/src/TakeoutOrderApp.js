@@ -1,4 +1,4 @@
-import React, { Component, useContext } from 'react';
+import React, { Component } from 'react';
 import './TakeoutOrderApp.css';
 import * as api from './api';
 import NavComponent from './NavComponent';
@@ -12,8 +12,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { GlobalContext } from './context/GlobalState';
 import * as Actions from './context/Actions';
-
-const TAX_RATE = .028;
 
 function roundTo(n, digits) {
    if (digits === undefined) {
@@ -85,10 +83,11 @@ class TakeoutOrderApp extends Component {
    }
 
    render() {
+      var menu;
       if (!this.state.isLoading) {
-         var menu = (<Menu onCategoryClick={this.onCategoryButtonClick.bind(this)} handleAddToOrderClick={this.handleAddToOrderClick.bind(this)} />)
+         menu = (<Menu onCategoryClick={this.onCategoryButtonClick.bind(this)} handleAddToOrderClick={this.handleAddToOrderClick.bind(this)} />)
       } else {
-         var menu = null;
+         menu = null;
       }
       return (
          <div>
