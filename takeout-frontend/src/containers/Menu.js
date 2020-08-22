@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import './Menu.css';
+import '../styles/Menu.css';
 import { Button, ButtonGroup } from 'shards-react';
 import { Card, CardImg, CardTitle, CardBody } from 'shards-react';
 import "shards-ui/dist/css/shards.min.css"
 import "bootstrap/dist/css/bootstrap.min.css";
-import { GlobalContext } from './context/GlobalState';
+import { GlobalContext } from '../context/GlobalState';
 
 const Menu = ({onCategoryClick, handleAddToOrderClick}) => {
    const { state } = useContext(GlobalContext);

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import TakeoutOrderApp from './TakeoutOrderApp';
+import HomeScreen from './screens/HomeScreen';
 import * as serviceWorker from './serviceWorker';
 
 import { GlobalProvider } from './context/GlobalState';
@@ -9,7 +9,7 @@ import { GlobalProvider } from './context/GlobalState';
 ReactDOM.render(
   <React.StrictMode>
      <GlobalProvider>
-      <TakeoutOrderApp />
+      <HomeScreen/>
     </GlobalProvider>
   </React.StrictMode>,
   document.getElementById('root')

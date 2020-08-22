@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import './TakeoutOrderApp.css';
-import * as api from './api';
-import NavComponent from './NavComponent';
-import Menu from './Menu';
-import Cart from './Cart';
-import MenuEditor from './MenuEditor'
+import '../styles/HomeScreen.css';
+import * as api from '../api/api';
+import NavComponent from '../components/NavComponent';
+import Menu from '../containers/Menu';
+import Cart from '../containers/Cart';
+import MenuEditor from '../containers/MenuEditor'
 
 import { Container, Row, Col } from 'shards-react';
 import "shards-ui/dist/css/shards.min.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { GlobalContext } from './context/GlobalState';
-import * as Actions from './context/Actions';
+import { GlobalContext } from '../context/GlobalState';
+import * as Actions from '../context/Actions';
 
 function roundTo(n, digits) {
    if (digits === undefined) {
@@ -23,7 +23,7 @@ function roundTo(n, digits) {
    return Math.round(n)/multiplicator;
 }
 
-class TakeoutOrderApp extends Component {
+class HomeScreen extends Component {
    constructor(props) {
       super(props);
       this.state = {
@@ -115,4 +115,4 @@ class TakeoutOrderApp extends Component {
    }
 }
 
-export default TakeoutOrderApp;
+export default HomeScreen;

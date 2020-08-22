@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import * as apiCalls from './api';
 
 import { Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Collapse } from 'shards-react';
 import "shards-ui/dist/css/shards.min.css"
 import "bootstrap/dist/css/bootstrap.min.css";
-
-import './NavComponent.css';
+import '../styles/NavComponent.css';
 
 class NavComponent extends Component {
    constructor(props) {

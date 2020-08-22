@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import * as apiCalls from './api';
-import './MenuEditor.css';
-
+import * as api from '../api/api';
+import '../styles/MenuEditor.css';
 import { Container, Row, Col } from 'shards-react';
+import ItemForm from '../components/ItemForm';
+import ItemUpdateForm from '../components/ItemUpdateForm';
+
+
 import "shards-ui/dist/css/shards.min.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -25,9 +28,9 @@ class MenuEditor extends Component {
    async grabDataFromDb() {
       var itemArr = [];
       if (this.state.selectedRadio === 'Item') {
-         itemArr = await apiCalls.getAllItems();
+         itemArr = await api.getAllItems();
       } else if (this.state.selectedRadio === 'Category') {
-         itemArr = await apiCalls.getAllCategories();
+         itemArr = await api.getAllCategories();
       }
       // console.log('this is the arr grabbed from menu editor component: ', itemArr);
       this.setState({
@@ -98,6 +101,13 @@ class MenuEditor extends Component {
                   Select {this.state.selectedRadio} to Edit</option>
                {dropdown}
             </select>
+
+            {/* <Row>
+               <ItemForm />
+            </Row>
+            <Row>
+               <ItemUpdateForm />
+            </Row> */}
 
          </div>
       )

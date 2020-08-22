@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as apiCalls from './api';
 // import { Item } from '../../takeout-backend/models';
 
 

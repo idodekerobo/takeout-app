@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as apiCalls from './api';
+import * as api from '../api/api';
 
 class ItemForm extends Component {
    constructor(props) {
@@ -28,7 +28,7 @@ class ItemForm extends Component {
 
    handleSubmit(e) {
       // e.preventDefault(); // comment this out because the refresh allows the new item to be shown on the screen
-      apiCalls.postItem(this.state.itemName, this.state.itemPrice);
+      api.postItem(this.state.itemName, this.state.itemPrice);
       console.log('Added a new item to your menu.');
       console.log('You added', this.state.itemName, 'at a price of', this.state.itemPrice, '.');
    }

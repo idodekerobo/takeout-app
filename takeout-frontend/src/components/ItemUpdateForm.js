@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as apiCalls from './api';
 
 class ItemUpdateForm extends Component {
    constructor(props) {
@@ -34,7 +33,7 @@ class ItemUpdateForm extends Component {
 
    handleSubmit(e) {
       e.preventDefault();
-      // apiCalls.updateItem      
+      // api.updateItem      
    }
 
    render() {
