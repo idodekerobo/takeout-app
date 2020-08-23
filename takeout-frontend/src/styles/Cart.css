@@ -2,3 +2,10 @@
    display: flex;
    flex-direction: column;
 }
+.router-link {
+   color: #fff;
+}
+.router-link:hover {
+   color: lightgrey;
+   text-decoration: none;
+}

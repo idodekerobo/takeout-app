@@ -1,0 +1,51 @@
+/* .form-wrapper {
+   border: 5px solid black;
+} */
+.checkout-form {
+   font: 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+   background: #f9f9f9;
+   padding: 25px;
+   max-width: 300px;
+   width: 100%;
+   margin: 0 auto;
+   border-radius: 10px;
+   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3), 0 5px 5px 0 rgba(0, 0, 0, 0.3);
+}
+fieldset {
+   border: none;
+   margin: 0 0 10px;
+   min-width: 100%;
+   padding: 0;
+}
+.checkout-form input[type="text"],
+.checkout-form input[type="email"],
+.checkout-form input[type="tel"],
+.checkout-form input[type="url"],
+.checkout-form input[type="file"],
+.checkout-form textarea {
+   width: 100%;
+   border: 1px solid #ccc;
+   background: #FFF;
+   margin: 0 0 5px;
+   padding: 10px;
+   border-radius: 10px;
+}
+.checkout-form button[type="submit"] {
+   cursor: pointer;
+   width: 100%;
+   border: none;
+   background: #287bff;
+   color: #FFF;
+   margin: 0 0 5px;
+   padding: 10px;
+   font-size: 15px;
+   border-radius: 10px;
+}
+.card-element-wrapper {
+   width: 100%;
+   border: 1px solid #ccc;
+   background: #FFF;
+   margin: 0 0 5px;
+   padding: 10px;
+   border-radius: 10px;  
+}

@@ -4,7 +4,6 @@ import * as api from '../api/api';
 import NavComponent from '../components/NavComponent';
 import Menu from '../containers/Menu';
 import Cart from '../containers/Cart';
-import MenuEditor from '../containers/MenuEditor'
 
 import { Container, Row, Col } from 'shards-react';
 import "shards-ui/dist/css/shards.min.css"
@@ -102,10 +101,6 @@ class HomeScreen extends Component {
                      <Col sm="12" lg="3">
                         <Cart handleRemoveFromCart={this.handleRemovefromCart} />
                      </Col>
-                  </Row>
-
-                  <Row>
-                     <MenuEditor/>
                   </Row>
                </Container>
             </div>
