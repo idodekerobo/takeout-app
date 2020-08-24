@@ -2,7 +2,6 @@
    height: 120px;
 }
 .navbar-brand {
-   height: 100%;
    display: flex;
    align-items: flex-end;
    margin-left: 25px;
@@ -14,9 +13,9 @@
    margin-right: 25px;
    align-items: flex-end;
 }
-/* .restaurant-info {
-   border: dotted grey 3px;
-   margin-right: auto;
-   display: flex;
-   align-items: flex-end;
-} */
+.restaurant-info a {
+   margin-bottom: 10px;
+}
+.restaurant-info p {
+   margin: 0;
+}

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ListGroup, ListGroupItem, Button } from 'shards-react';
 import '../styles/Cart.css';
 import "shards-ui/dist/css/shards.min.css"
@@ -14,8 +14,11 @@ const Cart = (props) => {
       </ListGroupItem>
    });
 
-   const handleCheckoutClick = async (e) => {
-      
+   const handleOrderClick = (e) => {
+      if (state.cart.length > 0) return "/checkout"
+      // don't go to checkout and pass feedback saying that you need to order an item
+   }
+   const onOrderClick = () => {
    }
 
    const subtotal = state.cart.slice().reduce((acc, obj) => (acc += obj.price), 0).toFixed(2);
@@ -34,9 +37,10 @@ const Cart = (props) => {
             <ListGroupItem>Total: ${total}</ListGroupItem>
          </ListGroup>
 
-         <Link to="/checkout" className="router-link">
-            <Button block onClick={handleCheckoutClick}>Checkout</Button>
+         <Link to={handleOrderClick} className="router-link">
+            <Button block onClick={onOrderClick}>Order</Button>
          </Link>
+
       </div>
    );
 }

@@ -1,79 +1,26 @@
-import React, { Component } from 'react';
-
-import { Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Collapse } from 'shards-react';
+import React from 'react';
+import { Navbar, NavbarBrand, Nav } from 'shards-react';
 import "shards-ui/dist/css/shards.min.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../styles/NavComponent.css';
 
-class NavComponent extends Component {
-   constructor(props) {
-      super(props);
-      this.state = {
-         collapseOpen: false
-      }
+const NavComponent = () => {
+   let restaurantInfo = (
+      <div className="restaurant-info">
+         <a>Restaurant Name</a>
+         <p>Restaurant Address</p>
+         <p>Restaurant Hours</p>
+      </div>
+   )
 
-      this.toggleNavbar = this.toggleNavbar.bind(this);
-   }
-
-   toggleNavbar() {
-      // complete method
-      this.setState({
-         ...this.state,
-         ...{
-            collapseOpen: !this.state.collapseOpen
-         }
-      });
-   }
-
-   render() {
-      let restaurantInfo;
-      if (this.props.restaurant != null) {
-         restaurantInfo = <div className="restauarant-info">
-            <a>Restaurant Name</a>
-            <p>1111 S Mill, Tempe, AZ 85282</p>
-            <p>M-F 9a-9p, Sa-Su 10a-8p</p>
-         </div>
-      } else {
-         restaurantInfo = <div className="restaurant-info">
-            RESTAURANT IS NULL
-         </div>
-      }
-
-      return (
-         <div className="component-wrapper">
-
-            <Navbar className="shards-navbar" type="dark" theme="primary" expand="md">
-               <NavbarBrand href="#">{restaurantInfo}</NavbarBrand>
-               <NavbarToggler onClick={this.toggleNavbar}/>
-               <Collapse open={this.state.collapseOpen} navbar className="collapse-nav-component">
-                  <Nav navbar className="nav-links">
-                  
-                     <NavItem>
-                        <NavLink active href="#">
-                           Menu
-                        </NavLink>
-                     </NavItem>
-
-                     <NavItem>
-                        <NavLink active href="#">
-                           Orders
-                        </NavLink>
-                     </NavItem>
-
-                     <NavItem>
-                        <NavLink active href="#">
-                           Profile
-                        </NavLink>
-                     </NavItem>
-
-                  </Nav>
-               </Collapse>
-            </Navbar>
-
-         </div>
-      );
-   }
-   
+   return (
+      <div className="component-wrapper">
+         <Navbar className="shards-navbar" type="dark" theme="primary" expand="md">
+            <NavbarBrand className="navbar-brand" href="#">{restaurantInfo}</NavbarBrand>
+               <Nav navbar className="nav-links">
+               </Nav>
+         </Navbar>
+      </div>
+   );
 }
-
 export default NavComponent;
