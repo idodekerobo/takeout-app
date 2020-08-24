@@ -23,7 +23,6 @@ const CheckoutForm = (props) => {
 
    const handleInputChange = (e) => {
       const target = e.target.name;
-      console.log(target);
       switch (target) {
          case 'firstName':
             setFirstName(e.target.value);
@@ -74,7 +73,6 @@ const CheckoutForm = (props) => {
             },
             body: JSON.stringify({
                items: state.cart,
-               // TODO - send the rest of the contact info to the server
                firstName, lastName, email, phone, city, customerState, zip,
             })
          });
