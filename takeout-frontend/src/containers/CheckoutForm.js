@@ -121,6 +121,7 @@ const CheckoutForm = (props) => {
    }
 
    // TODO - set the type of the input so correct keyboards come up on mobile
+   // TODO - add name on card input and name for order, add logic so if the same as order name it will auto-populate
    return (
       <div className="form-wrapper">
          <form className="checkout-form" onSubmit={handleSubmit}>
