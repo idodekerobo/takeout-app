@@ -8,4 +8,30 @@
 }
 .category-card {
    margin: 5px;
+   width: 200px;
+}
+.button-group > button {
+   background-color: #f7f5e7;
+   font-family: "Source Sans Pro", Helvetica, sans-serif;
+   text-transform: capitalize;
+}
+.card-body-div {
+   background-color: #f7f5e7;
+}
+.card-body-div > h5,
+.card-body-div > p,
+.card-body-div > button {
+   font-family: "Source Sans Pro", Helvetica, sans-serif;
+}
+.card-img {
+   height: auto;
+   width: 100%;
+}
+.card-title-div {
+   text-transform: capitalize;
+}
+.add-to-order-btn:hover {
+   background-color: black;
+   border-color: black;
+   color: white;
 }

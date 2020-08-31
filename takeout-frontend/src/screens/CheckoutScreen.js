@@ -18,7 +18,7 @@ const CheckoutScreen = (props) => {
    const { state } = useContext(GlobalContext);
 
    const cart = state.cart.map( (itemObj) => {
-      return <ListGroupItem>
+      return <ListGroupItem key={itemObj._id}>
          {itemObj.name}, ${itemObj.price.toFixed(2)}
       </ListGroupItem>
    });

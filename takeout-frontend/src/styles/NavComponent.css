@@ -1,5 +1,10 @@
 .shards-navbar {
-   height: 120px;
+   height: 200px;
+   /* background-image: url('../assets/cropped-CKs-burger-logo-optimized.jpg'); */
+   /* background-image: url('public/assets/cropped-CKs-burger-logo-optimized.jpg'); */
+   background-image: url('../cropped-CKs-burger-logo-optimized.jpg');
+   background-position: center;
+   background-color: white;
 }
 .navbar-brand {
    display: flex;

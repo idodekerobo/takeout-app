@@ -7,9 +7,9 @@ import '../styles/NavComponent.css';
 const NavComponent = () => {
    let restaurantInfo = (
       <div className="restaurant-info">
-         <a>Restaurant Name</a>
+         {/* <a>Restaurant Name</a>
          <p>Restaurant Address</p>
-         <p>Restaurant Hours</p>
+         <p>Restaurant Hours</p> */}
       </div>
    )
 

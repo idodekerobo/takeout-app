@@ -3,7 +3,6 @@ import './App.css';
 
 // Router
 import { Route, Switch } from 'react-router-dom';
-
 import HomeScreen from './screens/HomeScreen'
 import CheckoutScreen from './screens/CheckoutScreen';
 

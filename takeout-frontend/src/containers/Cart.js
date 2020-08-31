@@ -10,7 +10,7 @@ import TAX_RATE from '../api/constants';
 const Cart = (props) => {
    const { state } = useContext(GlobalContext);
    const currentCart = state.cart.slice().map((item) => {
-      return <ListGroupItem key={item._id}>{item.name}: ${(item.price).toFixed(2)} <Button onClick={props.handleRemoveFromCart.bind(this, item._id)} size="sm" theme="dark">Remove</Button>
+      return <ListGroupItem className="cart-list-group" key={item._id}>{item.name}: ${(item.price).toFixed(2)} <Button className="remove-button" onClick={props.handleRemoveFromCart.bind(this, item._id)} size="sm" theme="dark">Remove</Button>
       </ListGroupItem>
    });
 
@@ -38,7 +38,7 @@ const Cart = (props) => {
          </ListGroup>
 
          <Link to={handleOrderClick} className="router-link">
-            <Button block onClick={onOrderClick}>Order</Button>
+            <Button theme="danger" className="order-button" block onClick={onOrderClick}>Order</Button>
          </Link>
 
       </div>

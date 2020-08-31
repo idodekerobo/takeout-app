@@ -12,15 +12,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { GlobalContext } from '../context/GlobalState';
 import * as Actions from '../context/Actions';
 
-function roundTo(n, digits) {
-   if (digits === undefined) {
-      digits = 0;
-   }
-
-   var multiplicator = Math.pow(10, digits);
-   n = parseFloat((n * multiplicator).toFixed(11));
-   return Math.round(n)/multiplicator;
-}
+// function roundTo(n, digits) {
+//    if (digits === undefined) {
+//       digits = 0;
+//    }
+//    var multiplicator = Math.pow(10, digits);
+//    n = parseFloat((n * multiplicator).toFixed(11));
+//    return Math.round(n)/multiplicator;
+// }
 
 class HomeScreen extends Component {
    constructor(props) {
@@ -91,8 +90,8 @@ class HomeScreen extends Component {
       return (
          <div>
             <div className="main-body">
+               <a href="https://ckgrill.com/"><NavComponent /></a>
                <Container>
-                  <NavComponent/>
                   <Row>
                      <Col sm="12" lg="9">
                         {menu}

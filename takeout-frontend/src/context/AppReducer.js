@@ -28,6 +28,10 @@ export const Reducer = (state, action) => {
             ...state, 
             cart: action.payload
          }
+      case Actions.CLEAR_CART:
+         return {
+            cart: []
+         }
       default: 
          return state;
    }

@@ -6,6 +6,9 @@ import "shards-ui/dist/css/shards.min.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import { GlobalContext } from '../context/GlobalState';
 
+// import Button from '../components/Button';
+import burritoImg from '../assets/burrito.jpg'
+
 const Menu = ({onCategoryClick, handleAddToOrderClick}) => {
    const { state } = useContext(GlobalContext);
 
@@ -15,13 +18,14 @@ const Menu = ({onCategoryClick, handleAddToOrderClick}) => {
 
    const visibleItems = state.visibleItemCards.slice().map( (item) => {
       return   <Card key={item._id} className="category-card">
-                  <CardImg src="https://place-hold.it/300x200"/>
-                  <CardBody>
-                     <CardTitle>{item.name}</CardTitle>
+                  {/* <CardImg src='/assets/burrito.png'/> */}
+                  <CardImg className="card-img" src={burritoImg}/>
+                  <CardBody className="card-body-div">
+                     <CardTitle className="card-title-div">{item.name}</CardTitle>
                      <p>${item.price}</p>
-                     <button onClick={handleAddToOrderClick.bind(this, item._id)}>
+                     <Button theme="light" className="add-to-order-btn" onClick={handleAddToOrderClick.bind(this, item._id)}>
                         Add to Order
-                     </button>
+                     </Button>
                   </CardBody>
                </Card>
    });
@@ -30,7 +34,7 @@ const Menu = ({onCategoryClick, handleAddToOrderClick}) => {
       <div>
          <div className="category"> 
             <div className="category-buttons">
-               <ButtonGroup vertical>
+               <ButtonGroup className="button-group" vertical>
                   {categories}
                </ButtonGroup>
             </div>

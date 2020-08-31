@@ -1,6 +1,7 @@
 .cart-wrapper {
    display: flex;
    flex-direction: column;
+   font-family: "Source Sans Pro", Helvetica, sans-serif;
 }
 .router-link {
    color: #fff;
@@ -8,4 +9,27 @@
 .router-link:hover {
    color: lightgrey;
    text-decoration: none;
+}
+.cart-list-group {
+   text-transform: capitalize;
+}
+.remove-button {
+   font-family: "Source Sans Pro", Helvetica, sans-serif;
+}
+.order-button {
+   background-color: #e72325;
+   border-color: #e72325;
+   font-family: "Source Sans Pro", Helvetica, sans-serif;
+}
+.order-button:hover {
+   background-color: black;
+   border-color: #f7f5e7;
+}
+.order-button:active {
+   background-color: #e72325;
+   border-color: #e72325;  
+}
+.order-button:focus {
+   background-color: #e72325;
+   border-color: #e72325;  
 }
