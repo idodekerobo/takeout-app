@@ -134,6 +134,21 @@ const CheckoutForm = (props) => {
             redirectAfterTimeout();
          } else {
             if (result.paymentIntent.status === 'succeeded') {
+               
+               // sending new order to the server to be notified to the restauarant
+               const sendOrderToServer = await fetch('http://localhost:5000/api/order', {
+                  method: 'POST', 
+                  headers: {
+                     'Content-type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                     items: state.cart,
+                     firstName, lastName, email, phone, city, customerState, zip,
+                  })
+               });
+               const serverResponse = await sendOrderToServer;
+               console.log('this is the response from posting to server api', serverResponse);
+
                setFeedback('Thank you for your order. See you soon!');
                setModalBodyText('We will send a receipt to the email used in the order.');
                toggleModal();
@@ -152,6 +167,7 @@ const CheckoutForm = (props) => {
 
    // TODO - set the type of the input so correct keyboards come up on mobile
    // TODO - add name on card input and name for order, add logic so if the same as order name it will auto-populate
+   // TODO - match the colors of the pay/order buttons to the rest of the site
    return (
       <div className="form-wrapper">
          <Modal open={modalVisible} toggle={toggleModal}>

@@ -10,7 +10,7 @@ const initialState = {
 };
 
 // creating context
-// export const GlobalContext = createContext(initialState);
+// TODO - migrate to the new context API
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({children}) => {
