@@ -5,7 +5,9 @@
    justify-content: space-around;
    align-items: center;
 }
+.columns {
+   margin-bottom: 40px;
+}
 .items {
    width: 100%;
-   /* border: 2px solid black; */
 }

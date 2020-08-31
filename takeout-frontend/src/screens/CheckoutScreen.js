@@ -31,7 +31,7 @@ const CheckoutScreen = (props) => {
       <div className="checkout-screen">
          <Container>
             <Row>
-               <Col>
+               <Col lg="6" md="12" className="columns">
                   <div className="items">
                      <ListGroup>
                         {cart}
@@ -51,7 +51,7 @@ const CheckoutScreen = (props) => {
                   </div>
                </Col>
 
-               <Col>
+               <Col lg="6" md="12" className="columns">
                   <Elements stripe={stripePromise}>
                      <CheckoutForm/>
                   </Elements>

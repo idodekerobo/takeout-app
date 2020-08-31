@@ -23,7 +23,7 @@ const Menu = ({onCategoryClick, handleAddToOrderClick}) => {
                   <CardBody className="card-body-div">
                      <div className="card-text">
                         <CardTitle className="card-title-div">{item.name}</CardTitle>
-                        <p>${item.price}</p>
+                        <p>${item.price.toFixed(2)}</p>
                      </div>
                      <Button theme="light" className="add-to-order-btn" onClick={handleAddToOrderClick.bind(this, item._id)}>
                         Add to Order
