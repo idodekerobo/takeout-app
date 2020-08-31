@@ -1,10 +1,13 @@
+/* .component-wrapper {
+   
+} */
 .shards-navbar {
    height: 200px;
-   /* background-image: url('../assets/cropped-CKs-burger-logo-optimized.jpg'); */
-   /* background-image: url('public/assets/cropped-CKs-burger-logo-optimized.jpg'); */
+   background-color: transparent;
    background-image: url('../cropped-CKs-burger-logo-optimized.jpg');
    background-position: center;
-   background-color: white;
+   /* background-image: url('../assets/cropped-CKs-burger-logo-optimized.jpg'); */
+   /* background-image: url('public/assets/cropped-CKs-burger-logo-optimized.jpg'); */
 }
 .navbar-brand {
    display: flex;
@@ -23,4 +26,24 @@
 }
 .restaurant-info p {
    margin: 0;
+}
+@media (max-width: 767px) {
+   .shards-navbar {
+      background-size: 768px auto;
+      height: 100px;
+      background-position: top;
+      background-repeat: no-repeat;
+      /* background: url('../cropped-CKs-burger-logo-optimized.jpg') no-repeat scroll top; */
+      /* height: 85px; */
+   }
+}
+@media (max-width: 500px) {
+   .shards-navbar {
+      background-size: 501px auto;
+      height: 100px;
+      background-position: top;
+      background-repeat: no-repeat;
+      /* background: url('../cropped-CKs-burger-logo-optimized.jpg') no-repeat scroll top; */
+      /* height: 85px; */
+   }
 }

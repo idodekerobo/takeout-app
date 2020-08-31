@@ -1,14 +1,21 @@
 .category {
    display: flex;
 }
+.category-buttons {
+   padding: 0;
+}
 .category-contents {
    width: 100%;
+   padding: 0;
    display: flex;
    flex-wrap: wrap;
 }
 .category-card {
    margin: 5px;
    width: 200px;
+}
+.button-group {
+   width: 100%;
 }
 .button-group > button {
    background-color: #f7f5e7;
@@ -34,4 +41,37 @@
    background-color: black;
    border-color: black;
    color: white;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 992px) {
+   .category-contents {
+      display: flex;
+      justify-content: center;
+   }
+}
+@media screen and (max-width: 450px) {
+   .category-contents {
+      display: flex;
+      justify-content: center;
+   }
+   .category-card {
+      margin: 5px;
+      /* font-size: ; */
+   }
+   .card-text {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+   }
+   .card-text > h5 {
+      font-size: 15px;
+   }
+   .card-text > h5, .card-text > p {
+      margin-bottom: 4px;
+   }
+   .card-body-div, .card-body {
+      padding: 10;
+      display: inline;
+   }
 }
