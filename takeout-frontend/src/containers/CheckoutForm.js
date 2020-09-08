@@ -95,6 +95,17 @@ const CheckoutForm = (props) => {
       if (paymentMethod === 'pickup') {
          console.log('pay at pickup logic');
          // TODO - build out logic to notify business about pay @ pickup order
+         // const sendOrderToServer = await fetch('http://localhost:5000/api/order', {
+         //    method: 'POST',
+         //    headers: {
+         //       'Content-type': 'application/json'
+         //    },
+         //    body: JSON.stringify({
+         //       items: state.cart,
+         //       firstName, lastName, email, phone, city, customerState, zip,
+         //       paid: false
+         //    })
+         // });
          setFeedback('Thank you for your order.');
          setModalBodyText('See you soon!');
          toggleModal();
@@ -144,6 +155,7 @@ const CheckoutForm = (props) => {
                   body: JSON.stringify({
                      items: state.cart,
                      firstName, lastName, email, phone, city, customerState, zip,
+                     paid: true
                   })
                });
                const serverResponse = await sendOrderToServer;
