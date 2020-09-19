@@ -24,6 +24,7 @@ const CheckoutForm = (props) => {
    const [city, setCity] = useState('');
    const [customerState, setCustomerState] = useState('');
    const [zip, setZip] = useState('');
+   const [nameOnCard, setNameOnCard] = useState('');
 
    // control payment logic flow
    const [ paymentMethod, setPaymentMethod ] = useState('');
@@ -65,6 +66,8 @@ const CheckoutForm = (props) => {
          case 'zip': 
             setZip(e.target.value);
             break;
+         case 'nameOnCard':
+            setNameOnCard(e.target.value);
          default:
             break;
       }
@@ -93,25 +96,25 @@ const CheckoutForm = (props) => {
       e.preventDefault();
 
       if (paymentMethod === 'pickup') {
-         console.log('pay at pickup logic');
-         // TODO - build out logic to notify business about pay @ pickup order
-         // const sendOrderToServer = await fetch('http://localhost:5000/api/order', {
-         //    method: 'POST',
-         //    headers: {
-         //       'Content-type': 'application/json'
-         //    },
-         //    body: JSON.stringify({
-         //       items: state.cart,
-         //       firstName, lastName, email, phone, city, customerState, zip,
-         //       paid: false
-         //    })
-         // });
+         // TODO - put the production api url here when it pushes to production
+         await fetch('http://localhost:5000/api/order', {
+            method: 'POST',
+            headers: {
+               'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+               items: state.cart,
+               firstName, lastName, email, phone, city, customerState, zip,
+               paid: false
+            })
+         });
          setFeedback('Thank you for your order.');
          setModalBodyText('See you soon!');
          toggleModal();
          redirectAfterTimeout();
       } else if (paymentMethod === 'online') {
          if (!stripe || !elements) return;
+         // TODO - put the production api url here when it pushes to production
          const response = await fetch('http://localhost:5000/api/checkout', {
             method: 'POST',
             headers: {
@@ -123,14 +126,12 @@ const CheckoutForm = (props) => {
             })
          });
          const paymentIntentResponse = await response.json();
-         console.log('payment intent', paymentIntentResponse);
-         console.log('client secret', paymentIntentResponse.clientSecret);
 
          const result = await stripe.confirmCardPayment(paymentIntentResponse.clientSecret, {
             payment_method: {
                card: elements.getElement(CardElement),
                billing_details: {
-                  name: firstName+' '+lastName,
+                  name: nameOnCard,
                },
             },
             receipt_email: email 
@@ -145,9 +146,8 @@ const CheckoutForm = (props) => {
             redirectAfterTimeout();
          } else {
             if (result.paymentIntent.status === 'succeeded') {
-               
-               // sending new order to the server to be notified to the restauarant
-               const sendOrderToServer = await fetch('http://localhost:5000/api/order', {
+               // TODO - put the production api url here when it pushes to production
+               await fetch('http://localhost:5000/api/order', {
                   method: 'POST', 
                   headers: {
                      'Content-type': 'application/json'
@@ -158,9 +158,6 @@ const CheckoutForm = (props) => {
                      paid: true
                   })
                });
-               const serverResponse = await sendOrderToServer;
-               console.log('this is the response from posting to server api', serverResponse);
-
                setFeedback('Thank you for your order. See you soon!');
                setModalBodyText('We will send a receipt to the email used in the order.');
                toggleModal();
@@ -195,11 +192,12 @@ const CheckoutForm = (props) => {
                <input type="text" name="city" value={city} onChange={handleInputChange} placeholder="City" required />
                <input type="text" name="customerState" value={customerState} onChange={handleInputChange} placeholder="State" required />
                <input type="text" name="zip" value={zip} onChange={handleInputChange} placeholder="Zip" required />
-               <div className="card-element-wrapper" style={{ marginBottom: 15 }}>
-                  <CardElement options={{ style: styleObject }} />
+               <button type="submit" action="payAtPickUp" onClick={onPayAtPickupClick}>Pay at Pick Up</button>
+               <div className="card-element-wrapper" >
+                  <input id="nameOnCard" type="text" name="nameOnCard" value={nameOnCard} onChange={handleInputChange} placeholder="Name on Card" required/>
+                  <CardElement className="card-element" options={{ style: styleObject }} />
                </div>
                <button type="submit" action="payOnline" onClick={onPayOnlineClick} disabled={!stripe}>Pay Online</button>
-               <button type="submit" action="payAtPickUp" onClick={onPayAtPickupClick}>Pay at Pick Up</button>
             </fieldset>
          </form>
       </div>
