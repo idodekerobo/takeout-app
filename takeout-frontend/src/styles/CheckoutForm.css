@@ -5,7 +5,7 @@
    font: 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
    background: #f9f9f9;
    padding: 20px;
-   max-width: 300px;
+   max-width: 400px;
    width: 100%;
    margin: 0 auto;
    border-radius: 10px;
@@ -42,6 +42,9 @@ fieldset {
    border-radius: 10px;
 }
 .card-element-wrapper {
+   display: flex;
+   flex-direction: column;
+   align-content: center;
    width: 100%;
    border: 1px solid #ccc;
    background: #FFF;
@@ -51,6 +54,17 @@ fieldset {
 }
 #nameOnCard {
    margin: 0 0 10px;
+}
+.labelWrapper {
+   margin-bottom: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+#checkboxLabel {
+   margin: 0 0 0 15px;
+   /* margin: 0; */
+   display: inline;
 }
 .card-element {
    width: 100%;

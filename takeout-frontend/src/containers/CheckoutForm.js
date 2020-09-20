@@ -25,6 +25,7 @@ const CheckoutForm = (props) => {
    const [customerState, setCustomerState] = useState('');
    const [zip, setZip] = useState('');
    const [nameOnCard, setNameOnCard] = useState('');
+   const [matchingNames, setMatchingNames] = useState(true);
 
    // control payment logic flow
    const [ paymentMethod, setPaymentMethod ] = useState('');
@@ -66,11 +67,24 @@ const CheckoutForm = (props) => {
          case 'zip': 
             setZip(e.target.value);
             break;
-         case 'nameOnCard':
-            setNameOnCard(e.target.value);
+         case 'matchingNames':
+            setMatchingNames(!matchingNames);
+            break;
          default:
             break;
       }
+   }
+
+   const handleNameOnCardInput = (e) => {
+      if (matchingNames) {
+         setNameOnCard(firstName + " " + lastName)
+      } else {
+         setNameOnCard(e.target.value);
+      }
+   }
+
+   const nameOnCardInputStyle = {
+      display: 'none',
    }
 
    // TODO - figure out a better way to redirect after order
@@ -194,7 +208,11 @@ const CheckoutForm = (props) => {
                <input type="text" name="zip" value={zip} onChange={handleInputChange} placeholder="Zip" required />
                <button type="submit" action="payAtPickUp" onClick={onPayAtPickupClick}>Pay at Pick Up</button>
                <div className="card-element-wrapper" >
-                  <input id="nameOnCard" type="text" name="nameOnCard" value={nameOnCard} onChange={handleInputChange} placeholder="Name on Card" required/>
+                  <label className="labelWrapper">
+                     <input id="matchingNamesCheckbox" type="checkbox" name="matchingNames" value="matchingNames" checked={matchingNames} onChange={handleInputChange}/>
+                     <p id="checkboxLabel">Name on card matches name on order</p>
+                  </label>
+                  <input style={(matchingNames) ? nameOnCardInputStyle : null} id="nameOnCard" type="text" name="nameOnCard" value={nameOnCard} onChange={handleNameOnCardInput} placeholder="Name on Card" required={(matchingNames) ? false : true}/>
                   <CardElement className="card-element" options={{ style: styleObject }} />
                </div>
                <button type="submit" action="payOnline" onClick={onPayOnlineClick} disabled={!stripe}>Pay Online</button>
