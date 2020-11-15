@@ -62,7 +62,6 @@ class HomeScreen extends Component {
    }
 
    handleAddToOrderClick(id) {
-      console.log(id);
       const { state, dispatch } = this.context
       const clickedItem = state.visibleItemCards.slice().find( (item) => item._id === id);
       dispatch({type: Actions.ADD_TO_CART, payload: [...state.cart, clickedItem]});
